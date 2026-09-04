@@ -4,15 +4,16 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px; 
 }
 
-
 body {
     background-color: rgb(38, 28, 22);
     color: rgb(245, 235, 224);
+    overflow-x: hidden;
 }
 
 header {
@@ -54,7 +55,7 @@ nav ul li a:hover {
 }
 
 .hero {
-    background: linear-gradient(rgba(38, 28, 22, 0.88), rgba(38, 28, 22, 0.88)), url('./library\ bg.jpg');
+    background: linear-gradient(rgba(38, 28, 22, 0.88), rgba(38, 28, 22, 0.88)), url('images/library bg.jpg');
     background-size: cover;
     background-position: center;
     color: rgb(255, 255, 255);
@@ -73,6 +74,9 @@ nav ul li a:hover {
     font-size: 18px;
     margin-bottom: 25px;
     color: rgb(201, 169, 150);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .gallery-container {
@@ -115,10 +119,9 @@ nav ul li a:hover {
 
 .book-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 25px;
     scroll-margin-top: 20px;
-
 }
 
 .book-card {
@@ -131,6 +134,9 @@ nav ul li a:hover {
     padding-bottom: 20px;
     cursor: pointer;
     border: 1px solid rgb(82, 59, 47);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .book-card:hover {
@@ -166,6 +172,7 @@ nav ul li a:hover {
     cursor: pointer;
     font-weight: 600;
     transition: background 0.2s, border-color 0.2s;
+    align-self: center;
 }
 
 .view-btn:hover {
@@ -185,27 +192,29 @@ nav ul li a:hover {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding: 20px;
 }
 
 .lightbox-content {
-    max-width: 80%;
-    max-height: 70vh;
+    max-width: 90%;
+    max-height: 65vh;
     border-radius: 8px;
+    object-fit: contain;
 }
 
 .lightbox-caption {
     color: rgb(245, 235, 224);
     margin-top: 15px;
-    font-size: 20px;
+    font-size: 18px;
     text-align: center;
 }
 
 .close-lightbox {
     position: absolute;
-    top: 25px;
-    right: 35px;
+    top: 20px;
+    right: 25px;
     color: rgb(245, 235, 224);
-    font-size: 40px;
+    font-size: 35px;
     cursor: pointer;
 }
 
@@ -215,23 +224,25 @@ nav ul li a:hover {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 40px;
+    padding: 0 20px;
     transform: translateY(-50%);
+    pointer-events: none;
 }
 
 .nav-btn {
-    background-color: rgba(255, 255, 255, 0.1);
+    pointer-events: auto;
+    background-color: rgba(255, 255, 255, 0.2);
     color: rgb(255, 255, 255);
     border: none;
     padding: 12px 18px;
-    font-size: 22px;
+    font-size: 20px;
     cursor: pointer;
     border-radius: 50%;
     transition: background 0.3s;
 }
 
 .nav-btn:hover {
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.4);
 }
 
 footer {
@@ -243,20 +254,70 @@ footer {
     font-size: 14px;
     border-top: 1px solid rgb(82, 59, 47);
     width: 100%;
-    position: relative;
-    clear: both;
 }
 
 @media (max-width: 768px) {
     header {
         padding: 15px 20px;
         flex-direction: column;
-        gap: 10px;
+        gap: 12px;
     }
+
     nav ul {
-        gap: 15px;
+        gap: 18px;
     }
+
+    .hero {
+        padding: 50px 15px;
+    }
+
     .hero h1 {
         font-size: 28px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .section-title {
+        font-size: 26px;
+    }
+
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 14px;
+    }
+
+    .book-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+
+    .book-card img {
+        height: 260px;
+    }
+}
+
+@media (max-width: 480px) {
+    .book-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .filter-buttons {
+        gap: 8px;
+    }
+
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 13px;
+    }
+
+    .lightbox-nav {
+        padding: 0 10px;
+    }
+
+    .nav-btn {
+        padding: 8px 14px;
+        font-size: 16px;
     }
 }
